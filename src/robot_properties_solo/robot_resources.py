@@ -32,6 +32,11 @@ class Resources(object):
         self.urdf_path = str(
             self.resources_dir / "urdf" / (self.robot_name + ".urdf")
         )
+
+        self.urdf_plane_path = str(
+            self.resources_dir / "urdf" / ("plane_with_restitution.urdf")
+        )
+
         self.srdf_path = str(
             self.resources_dir / "srdf" / (self.robot_family + ".srdf")
         )
