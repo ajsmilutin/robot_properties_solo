@@ -85,7 +85,7 @@
                     </body>
                 </body>
             </body>
-            <site name="IMU" pos="0 0.0 0.025" euler="0 0 0" type="box" size = "0.04 0.02 0.005" rgba="0.9 0.9 0.2 1"/>
+            <site name="IMU" pos="0.10407 -0.00635 0.01540" euler="0 0 0" type="box" size = "0.04 0.02 0.005" rgba="0.9 0.9 0.2 1"/>
         </body>
     </worldbody>
     <actuator>
@@ -110,6 +110,7 @@
         <gyro name="angular-velocity" site="IMU" noise="5e-4" cutoff="34.9"/>
         <accelerometer name="linear-acceleration" site="IMU" noise="1e-2" cutoff="157"/>
         <magnetometer name="magnetometer" site="IMU"/>
+        <framequat name="attitude" objtype="site" objname="IMU"/>
     </sensor>
     <contact>
         <exclude body1="base_link" body2="FL_UPPER_LEG"/>
