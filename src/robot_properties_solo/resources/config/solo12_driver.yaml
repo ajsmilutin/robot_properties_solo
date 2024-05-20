@@ -1,40 +1,137 @@
 robot:
     interface: enp5s0f1
     joint_modules:
-        motor_numbers: [0, 3, 2, 1, 5, 4, 6, 9, 8, 7, 11, 10]
+        motor_numbers: [
+                0, # FL_HAA
+                2, # FL_HFE
+                3, # FL_KFE
+                4, # FR_HAA
+                5, # FR_HFE
+                1, # FR_KFE
+                6, # HL_HAA
+                8, # HL_HFE
+                9, # HL_KFE
+                7, # HR_HAA
+                10, # HR_HFE
+                11, # HR_KFE
+            ]
         motor_constants: 0.025
         gear_ratios: 9.
+        counts_per_revolution: 20000
         max_currents: 8.
         reverse_polarities: [
-            false, true, true, true, false, false,
-            false, true, true, true, false, false
-        ]
+                false, # FL_HAA
+                true,  # FL_HFE
+                true,  # FL_KFE
+                true,  # FR_HAA
+                false, # FR_HFE
+                false, # FR_KFE
+                false, # HL_HAA
+                true, # HL_HFE
+                true, # HL_KFE
+                true,  # HR_HAA
+                false, # HR_HFE
+                false, # HR_KFE
+            ]
         lower_joint_limits: [
-            -0.9, -1.45, -2.8, -0.9, -1.45, -2.8,
-            -0.9, -1.45, -2.8, -0.9, -1.45, -2.8
-        ]
+                -0.9,  # FL_HAA
+                -1.60, # FL_HFE
+                -2.9,  # FL_KFE
+                -0.9,  # FR_HAA
+                -1.60, # FR_HFE
+                -2.9,  # FR_KFE
+                -0.9,  # HL_HAA
+                -1.60, # HL_HFE
+                -2.9 , # HL_KFE
+                -0.9,  # HR_HAA
+                -1.60, # HR_HFE
+                -2.9 , # HR_KFE
+            ]
         upper_joint_limits: [
-            0.9,  1.45,  2.8,  0.9,  1.45,  2.8,
-            0.9,  1.45,  2.8,  0.9,  1.45,  2.8
-        ]
+                0.9,  # FL_HAA
+                1.60, # FL_HFE
+                2.9,  # FL_KFE
+                0.9,  # FR_HAA
+                1.60, # FR_HFE
+                2.9,  # FR_KFE
+                0.9,  # HL_HAA
+                1.60, # HL_HFE
+                2.9 , # HL_KFE
+                0.9,  # HR_HAA
+                1.60, # HR_HFE
+                2.9 , # HR_KFE
+            ]
         max_joint_velocities: 80.
         safety_damping: 0.2
+        joint_names: [
+                "FL_HAA",
+                "FL_HFE",
+                "FL_KFE",
+                "FR_HAA",
+                "FR_HFE",
+                "FR_KFE",
+                "HL_HAA",
+                "HL_HFE",
+                "HL_KFE",
+                "HR_HAA",
+                "HR_HFE",
+                "HR_KFE",
+            ]
     imu:
         rotate_vector: [1, 2, 3]
         orientation_vector: [1, 2, 3, 4]
 joint_calibrator:
     # Can be either POS, NEG, ALT or AUTO
     search_methods: [
-      POS, POS, POS, NEG, POS, POS,
-      POS, POS, POS, NEG, POS, POS
-    ]
-    position_offsets: [
-       0.179, 0.497, 0.360,
-      -0.594, 0.219, 0.602,
-       0.543, 0.539, 0.436,
-      -0.241, 0.440, 0.210
-    ]
+            POS, # FL_KFE
+            NEG, # FL_HAA
+            NEG, # FR_HAA
+            NEG, # FL_HFE
+            NEG, # FR_HFE
+            NEG, # FR_KFE
+            POS,  # HL_HAA
+            POS, # HL_KFE
+            POS, # HL_KFE
+            NEG, # HR_HAA
+            POS, # HR_KFE
+            POS, # HR_KFE
+        ]
+
+    position_offsets:
+        [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+    calib_order: [
+            1, # FL_HAA
+            0, # FL_HFE
+            0, # FL_KFE
+            1, # FR_HAA
+            0, # FR_HFE
+            0, # FR_KFE
+            1,  # HL_HAA
+            0,  # HL_HFE
+            0,  # HL_KFE
+            1,  # HR_HAA
+            0,  # HR_HFE
+            0,  # HR_KFE
+        ]
+    calib_pos: [
+            0.0,   # FL_HAA
+            0.0,   # FL_HFE
+           -1.57, # FL_KFE
+            0.0,   # FR_HAA
+            0.0,   # FR_HFE
+           -1.57,  # FR_KFE
+            0,     # HL_HAA
+            0.0,   # HL_HFE
+           -1.57,  # HL_KFE
+            0,     # HR_HAA
+            0.0,   # HR_HFE
+           -1.57,  # HR_KFE
+        ]
     Kp: 5.
     Kd: 0.05
     T: 1.
     dt: 0.001
+
+simulation:
+    simulate_encoders: true
