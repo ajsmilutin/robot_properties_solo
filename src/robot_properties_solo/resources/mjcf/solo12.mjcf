@@ -17,7 +17,7 @@
 
         <geom type="plane" size="4 4 0.1" rgba="1 1 1 1"/>
 
-        <body name="base_link" pos="0 0 0.35" euler="0 0 0">
+        <body name="base_link" pos="0 0 0.4" euler="0 0 0">
             <joint name="free_joint" type="free"/>
             <inertial mass="1.25123725" pos="0 0 0" fullinertia="0.00266220 0.01388510 0.01605370 -0.00003684 -0.00001716 -0.00000009"/>
             <geom type="mesh" mesh="solo_12_base"/>
@@ -28,7 +28,7 @@
                 <body name="FL_UPPER_LEG" pos="-0.0195 0.014 0">
                     <joint name="FL_HFE" type="hinge" axis="0 1 0" range="-1.45 1.45" damping="0.009" frictionloss="0.005"/>
                     <geom type="mesh" mesh="solo12_upper_leg_left_side"/>
-                    <inertial mass="0.14737324" pos="0.00001530 0.01767640 -0.07838230" fullinertia="0.00041540 0.00041637 0.00002982 0.00000000 0.00000010 -0.00004589"/>
+                    <inertial mass="0.14737324" pos="0.00001530 0.01767640 -0.07838230" fullinertia="0.00041540 0.00041637 0.00002982 0.00000000 -0.00000010 0.00004589"/>
                     <body name="FL_LOWER_LEG" pos="0 0.037450000000000004 -0.16">
                         <joint name="FL_KFE" type="hinge" axis="0 1 0" range="-2.8 2.8" damping="0.0095" frictionloss="0.005"/>
                         <geom type="mesh" mesh="solo_lower_leg_v2_left_side"/>
@@ -44,7 +44,7 @@
                 <body name="FR_UPPER_LEG" pos="-0.0195 -0.014 0">
                     <joint name="FR_HFE" type="hinge" axis="0 1 0" range="-1.45 1.45" damping="0.009" frictionloss="0.005"/>
                     <geom type="mesh" mesh="solo12_upper_leg_right_side"/>
-                    <inertial mass="0.14737324" pos="-0.00001530 -0.01767640 -0.07838230" fullinertia="0.00041540 0.00041637 0.00002982 0.00000000 -0.00000010 0.00004589"/>
+                    <inertial mass="0.14737324" pos="-0.00001530 -0.01767640 -0.07838230" fullinertia="0.00041540 0.00041637 0.00002982 0.00000000 0.00000010 -0.00004589"/>
                     <body name="FR_LOWER_LEG" pos="0 -0.037450000000000004 -0.16">
                         <joint name="FR_KFE" type="hinge" axis="0 1 0" range="-2.8 2.8" damping="0.0095" frictionloss="0.005"/>
                         <geom type="mesh" mesh="solo_lower_leg_v2_right_side"/>
@@ -60,7 +60,7 @@
                 <body name="HL_UPPER_LEG" pos="0.0195 0.014 0">
                     <joint name="HL_HFE" type="hinge" axis="0 1 0" range="-1.45 1.45" damping="0.009" frictionloss="0.005"/>
                     <geom type="mesh" mesh="solo12_upper_leg_left_side"/>
-                    <inertial mass="0.14737324" pos="0.00001530 0.01767640 -0.07838230" fullinertia="0.00041540 0.00041637 0.00002982 0.00000000 0.00000010 -0.00004589"/>
+                    <inertial mass="0.14737324" pos="0.00001530 0.01767640 -0.07838230" fullinertia="0.00041540 0.00041637 0.00002982 0.00000000 -0.00000010 0.00004589"/>
                     <body name="HL_LOWER_LEG" pos="0 0.037450000000000004 -0.16">
                         <joint name="HL_KFE" type="hinge" axis="0 1 0" range="-2.8 2.8" damping="0.0095" frictionloss="0.005"/>
                         <geom type="mesh" mesh="solo_lower_leg_v2_left_side"/>
@@ -76,7 +76,7 @@
                 <body name="HR_UPPER_LEG" pos="0.0195 -0.014 0">
                     <joint name="HR_HFE" type="hinge" axis="0 1 0" range="-1.45 1.45" damping="0.009" frictionloss="0.005"/>
                     <geom type="mesh" mesh="solo12_upper_leg_right_side"/>
-                    <inertial mass="0.14737324" pos="-0.00001530 -0.01767640 -0.07838230" fullinertia="0.00041540 0.00041637 0.00002982 0.00000000 -0.00000010 0.00004589"/>
+                    <inertial mass="0.14737324" pos="-0.00001530 -0.01767640 -0.07838230" fullinertia="0.00041540 0.00041637 0.00002982 0.00000000 0.00000010 -0.00004589"/>
                     <body name="HR_LOWER_LEG" pos="0 -0.037450000000000004 -0.16">
                         <joint name="HR_KFE" type="hinge" axis="0 1 0" range="-2.8 2.8" damping="0.0095" frictionloss="0.005"/>
                         <geom type="mesh" mesh="solo_lower_leg_v2_right_side"/>
@@ -118,4 +118,7 @@
         <exclude body1="base_link" body2="HL_UPPER_LEG"/>
         <exclude body1="base_link" body2="HR_UPPER_LEG"/>
     </contact>
+    <equality>
+        <weld name="fixed" active="false" body1="base_link"/>
+    </equality>
 </mujoco>
