@@ -6,3 +6,4 @@ Copyright note valid unless otherwise stated in individual files.
 All rights reserved.
 """
 from robot_properties_solo.robot_resources import Resources
+from robot_properties_solo.solo12wrapper import Solo12Robot
