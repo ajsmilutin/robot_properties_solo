@@ -1,11 +1,19 @@
 <?xml version="1.0"?>
-<mujoco>
+<mujoco xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
+    <xacro:arg name="environment" default=""/>
+    <xacro:arg name="resources_dir" default= ""/>
     <option cone="elliptic"/>
     <default>
-        <geom solref="0.0125 0.5" solimp= "0.975 0.975 0.001 0.5 2"/>
+        <geom solref="0.002 1" solimp= "0.9 0.985 0.001 0.5 2"/>
     </default>
-    <compiler angle="radian" meshdir="../meshes/stl/solo12/" autolimits="true"/>
+    <compiler angle="radian" meshdir="$(arg resources_dir)/meshes/stl/solo12/" autolimits="true"/>
     <asset>
+        <texture name="grid" type="2d" builtin="checker" rgb1=".1 .2 .3"
+            rgb2=".2 .3 .4" width="300" height="300"/>
+        <material name="grid" texture="grid" texrepeat="8 8" reflectance=".2"/>
+        <texture name="flat" type="2d" builtin="flat"
+            rgb1=".2 .3 .4" width="300" height="300"/>
+        <material name="flat" texture="flat"  reflectance=".2"/>
         <mesh file="solo_12_base.stl"/>
         <mesh file="solo12_hip_fe_fl.stl"/>
         <mesh file="solo12_hip_fe_hl.stl"/>
@@ -16,6 +24,15 @@
         <mesh file="solo12_upper_leg_right_side.stl"/>
         <mesh file="../without_foot/solo_lower_leg_v2_right_side.stl"/>
     </asset>
+    <xacro:if value="$(eval environment == '')">
+        <worldbody>
+            <geom type="plane" size="4 4 0.1" material="grid"/>
+        </worldbody>
+    </xacro:if>
+    <xacro:unless value="$(eval environment == '')">
+        <include file="$(arg environment)"/>
+    </xacro:unless>
+
     <worldbody>
         <light diffuse=".5 .5 .5" pos="0 0 3" dir="0 0 -1"/>
 
