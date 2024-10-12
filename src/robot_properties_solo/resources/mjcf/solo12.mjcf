@@ -2,7 +2,7 @@
 <mujoco>
     <option cone="elliptic"/>
     <default>
-        <geom solref="0.0125 0.5" solimp= "0.975 0.975 0.001 0.5 2"/>
+        <geom solref="0.0125 0.5" solimp= "0.985 0.995 0.001 0.5 2"/>
     </default>
     <compiler angle="radian" meshdir="../meshes/stl/solo12/" autolimits="true"/>
     <asset>

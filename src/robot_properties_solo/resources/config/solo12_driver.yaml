@@ -1,5 +1,5 @@
 robot:
-    interface: enp5s0f1
+    interface: eno1
     joint_modules:
         motor_numbers: [
                 0, # FL_HAA
@@ -78,8 +78,8 @@ robot:
                 "HR_KFE",
             ]
     imu:
-        rotate_vector: [1, 2, 3]
-        orientation_vector: [1, 2, 3, 4]
+        rotate_vector: [-1, -2, 3]
+        orientation_vector: [-3 , -4, -1 ,-2]
 joint_calibrator:
     # Can be either POS, NEG, ALT or AUTO
     search_methods: [
@@ -97,22 +97,26 @@ joint_calibrator:
             POS, # HR_KFE
         ]
 
-    position_offsets:
-        [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    position_offsets: 
+        [ 0.4447, -0.2885,  0.8899, -0.3297, -0.0594,  0.39  ,  0.1465, -0.0784, -0.1224,  0.0037, -0.019 , -0.5457]
+    #[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+      
+
+
 
     calib_order: [
-            1, # FL_HAA
-            0, # FL_HFE
-            0, # FL_KFE
-            1, # FR_HAA
-            0, # FR_HFE
-            0, # FR_KFE
-            1,  # HL_HAA
-            0,  # HL_HFE
-            0,  # HL_KFE
-            1,  # HR_HAA
-            0,  # HR_HFE
-            0,  # HR_KFE
+            0, # FL_HAA
+            1, # FL_HFE
+            2, # FL_KFE
+            0, # FR_HAA
+            1, # FR_HFE
+            2, # FR_KFE
+            0,  # HL_HAA
+            1,  # HL_HFE
+            2,  # HL_KFE
+            0,  # HR_HAA
+            1,  # HR_HFE
+            2,  # HR_KFE
         ]
     calib_pos: [
             0.0,   # FL_HAA
@@ -134,4 +138,4 @@ joint_calibrator:
     dt: 0.001
 
 simulation:
-    simulate_encoders: true
+    simulate_encoders: false
