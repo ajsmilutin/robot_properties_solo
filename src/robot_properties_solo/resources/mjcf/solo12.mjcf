@@ -6,6 +6,9 @@
     </default>
     <compiler angle="radian" meshdir="../meshes/stl/solo12/" autolimits="true"/>
     <asset>
+        <texture name="grid" type="2d" builtin="checker" rgb1=".1 .2 .3"
+            rgb2=".2 .3 .4" width="300" height="300"/>
+        <material name="grid" texture="grid" texrepeat="8 8" reflectance=".2"/>
         <mesh file="solo_12_base.stl"/>
         <mesh file="solo12_hip_fe_fl.stl"/>
         <mesh file="solo12_hip_fe_hl.stl"/>
@@ -18,7 +21,7 @@
     </asset>
     <worldbody>
         <light diffuse=".5 .5 .5" pos="0 0 3" dir="0 0 -1"/>
-
+        <geom type="plane" size="4 4 0.1" material="grid"/>
         <body name="base_link" pos="0 0 0.4" euler="0 0 0">
             <joint name="free_joint" type="free"/>
             <inertial mass="1.25123725" pos="0 0 0" fullinertia="0.00266220 0.01388510 0.01605370 -0.00003684 -0.00001716 -0.00000009"/>
