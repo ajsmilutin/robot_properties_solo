@@ -1,5 +1,5 @@
 robot:
-    interface: eno1
+    interface: wlo1mon
     joint_modules:
         motor_numbers: [
                 0, # FL_HAA
@@ -18,7 +18,7 @@ robot:
         motor_constants: 0.025
         gear_ratios: 9.
         counts_per_revolution: 20000
-        max_currents: 8.
+        max_currents: 12.
         reverse_polarities: [
                 false, # FL_HAA
                 true,  # FL_HFE
@@ -97,9 +97,9 @@ joint_calibrator:
             POS, # HR_KFE
         ]
 
-    position_offsets: 
-        [ 0.4447, -0.2885,  0.8899, -0.3297, -0.0594,  0.39  ,  0.1465, -0.0784, -0.1224,  0.0037, -0.019 , -0.5457]
-    #[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    position_offsets: [-0.3853, -0.4138,  0.9876, -0.1982, -0.0505, 1.032831701,  0.0198, -0.0342, -0.8165, -0.0526,  0.4045, -1.1296]
+
+  #  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
       
 
 
