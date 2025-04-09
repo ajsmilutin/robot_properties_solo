@@ -8,37 +8,37 @@ Copyright note valid unless otherwise stated in individual files.
 All rights reserved.
 """
 import numpy as np
-from robot_properties_solo.config import Solo12Config
+from robot_properties_solo.config import UnitreeGo2Config
 
 dt = 1e-3
 
-class Solo12Robot():
+class UnitreeGo2Robot():
     """
     Similar12 robot used for ROS + Gazebo projects
     """
     def __init__(self):
 
-        self.urdf_path = Solo12Config.urdf_path
-        self.mjcf_path = Solo12Config.mjcf_path
+        self.urdf_path = UnitreeGo2Config.urdf_path
+        self.mjcf_path = UnitreeGo2Config.mjcf_path
 
         # Create the robot wrapper in pinocchio.
-        self.pin_robot = Solo12Config.buildRobotWrapper()
-        self.initial_configuration = Solo12Config.initial_configuration
+        self.pin_robot = UnitreeGo2Config.buildRobotWrapper()
 
         self.base_link_name = "base_link"
         self.end_eff_ids = []
         self.end_effector_names = []
         controlled_joints = []
 
-        for leg in ["FL", "FR", "HL", "HR"]:
+        for leg in ["FL", "FR", "RL", "RR"]:
             controlled_joints += [leg + "_HAA", leg + "_HFE", leg + "_KFE"]
             self.end_eff_ids.append(
-                self.pin_robot.model.getFrameId(leg + "_FOOT")
+                self.pin_robot.model.getFrameId(leg + "_foot")
             )
-            self.end_effector_names.append(leg + "_FOOT")
+            self.end_effector_names.append(leg + "_foot")
 
         self.joint_names = controlled_joints
         self.nb_ee = len(self.end_effector_names)
+        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA {}".format(self.end_eff_ids))
 
         self.hl_index = self.pin_robot.model.getFrameId("HL_ANKLE")
         self.hr_index = self.pin_robot.model.getFrameId("HR_ANKLE")
@@ -58,8 +58,8 @@ class Solo12Robot():
 
     def reset_to_initial_state(self) -> None:
         """Reset robot state to the initial configuration (based on Solo12Config)."""
-        q0 = np.array(Solo12Config.initial_configuration)
-        dq0 = np.array(Solo12Config.initial_velocity)
+        q0 = np.array(UnitreeGo2Config.initial_configuration)
+        dq0 = np.array(UnitreeGo2Config.initial_velocity)
         self.reset_state(q0, dq0)
 
     def update_pinocchio(self, q, dq):

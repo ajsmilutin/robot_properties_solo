@@ -14,8 +14,8 @@
   <link name="base_link">
     <!-- BASE LINK INERTIAL -->
     <inertial>
-        <origin xyz="-0.00082966 0.00000105 -0.00060210" rpy="0 0 0" />
-        <mass value="1.25123725"/>
+        <origin xyz="-0.02 0.00 .0" rpy="0 0 0" />
+        <mass value="1.62123725"/>
         <!-- The base is extremely symmetrical. -->
         <inertia ixx="0.00266220" ixy="-0.00003684" ixz="-0.00001716"
                                   iyy="0.01388510"  iyz="-0.00000009"
@@ -50,7 +50,7 @@
   </link> <!-- END BASE LINK -->
 
   <!-- Include the legs -->
-  <xacro:include filename="leg.xacro"/>
+  <xacro:include filename="solo/leg.xacro"/>
 
   <!-- Include the front left leg -->
   <xacro:leg

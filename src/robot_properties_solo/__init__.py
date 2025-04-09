@@ -7,3 +7,4 @@ All rights reserved.
 """
 from robot_properties_solo.robot_resources import Resources
 from robot_properties_solo.solo12wrapper import Solo12Robot
+from robot_properties_solo.unitree_go2wrapper import UnitreeGo2Robot

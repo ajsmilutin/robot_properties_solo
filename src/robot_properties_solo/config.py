@@ -262,3 +262,104 @@ class Solo12Config(SoloAbstract):
 
     rot_base_to_imu = np.identity(3)
     r_base_to_imu = np.array([0.10407, -0.00635, 0.01540])
+
+
+class UnitreeGo2Config(SoloAbstract):
+    robot_family = "unitree"
+    robot_name = "unitree_go2"
+
+    resources = Resources(robot_name)
+    meshes_path = resources.meshes_path
+    dgm_yaml_path = resources.dgm_yaml_path
+    urdf_path = resources.urdf_path
+    mjcf_path = resources.mjcf_path
+    ctrl_path = resources.imp_ctrl_yaml_path
+
+    # The inertia of a single blmc_motor.
+    motor_inertia = 0.0000045
+
+    # The motor gear ratio.
+    motor_gear_ration = 9.0
+
+    # pinocchio model.
+    pin_robot_wrapper = RobotWrapper.BuildFromURDF(
+        urdf_path, meshes_path, se3.JointModelFreeFlyer()
+    )
+    pin_robot_wrapper.model.rotorInertia[6:] = motor_inertia
+    pin_robot_wrapper.model.rotorGearRatio[6:] = motor_gear_ration
+    pin_robot = pin_robot_wrapper
+
+    robot_model = pin_robot_wrapper.model
+    mass = np.sum([i.mass for i in robot_model.inertias])
+    base_name = robot_model.frames[2].name
+
+    # End effectors informations
+    shoulder_ids = []
+    end_eff_ids = []
+    shoulder_names = []
+    end_effector_names = []
+    for leg in ["FL", "FR", "RL", "RR"]:
+        shoulder_ids.append(robot_model.getFrameId(leg + "_HAA"))
+        shoulder_names.append(leg + "_HAA")
+        end_eff_ids.append(robot_model.getFrameId(leg + "_foot"))
+        end_effector_names.append(leg + "_foot")
+
+    nb_ee = len(end_effector_names)
+    hl_index = robot_model.getFrameId("HL_ANKLE")
+    hr_index = robot_model.getFrameId("HR_ANKLE")
+    fl_index = robot_model.getFrameId("FL_ANKLE")
+    fr_index = robot_model.getFrameId("FR_ANKLE")
+
+    # The number of motors, here they are the same as there are only revolute
+    # joints.
+    nb_joints = robot_model.nv - 6
+
+    joint_names = [
+        "FL_hip_joint",
+        "FL_thigh_joint",
+        "FL_calf_joint",
+        "FR_hip_joint",
+        "FR_thigh_joint",
+        "FR_calf_joint",
+        "RL_hip_joint",
+        "RL_thigh_joint",
+        "RL_calf_joint",
+        "RR_hip_joint",
+        "RR_thigh_joint",
+        "RR_calf_joint",
+    ]
+
+    # Mapping between the ctrl vector in the device and the urdf indexes.
+    urdf_to_dgm = tuple(range(12))
+
+    map_joint_name_to_id = {}
+    map_joint_limits = {}
+    for i, (name, lb, ub) in enumerate(
+        zip(
+            robot_model.names[1:],
+            robot_model.lowerPositionLimit,
+            robot_model.upperPositionLimit,
+        )
+    ):
+        map_joint_name_to_id[name] = i
+        map_joint_limits[i] = [float(lb), float(ub)]
+
+    # Define the initial state.
+    initial_configuration = (
+        [0.2, 0.0, 0.25, 0.0, 0.0, 0.0, 1.0]
+        + 2 * [0.0, 0.8, -1.6]
+        + 2 * [0.0, -0.8, 1.6]
+    )
+    initial_velocity = (8 + 4 + 6) * [
+        0,
+    ]
+
+    q0 = zero(robot_model.nq)
+    q0[:] = initial_configuration
+    v0 = zero(robot_model.nv)
+    a0 = zero(robot_model.nv)
+
+    base_p_com = [0.0, 0.0, -0.02]
+
+    rot_base_to_imu = np.identity(3)
+    r_base_to_imu = np.array([0.10407, -0.00635, 0.01540])

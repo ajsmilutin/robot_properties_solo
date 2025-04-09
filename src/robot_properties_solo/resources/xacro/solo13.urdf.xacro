@@ -91,7 +91,7 @@
 
 
   <!-- Include the legs -->
-  <xacro:include filename="leg.xacro"/>
+  <xacro:include filename="solo/leg.xacro"/>
 
   <!-- Include the front left leg -->
   <xacro:leg prefix="FL" parent="base_link" is_front="true" is_right="false" has_side_motion="true" mesh_ext="${mesh_ext}" color_name="${color_name}" color="${color}" opacity="${opacity}"/>
