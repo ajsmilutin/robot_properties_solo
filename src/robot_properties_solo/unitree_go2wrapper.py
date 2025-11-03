@@ -38,7 +38,6 @@ class UnitreeGo2Robot():
 
         self.joint_names = controlled_joints
         self.nb_ee = len(self.end_effector_names)
-        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA {}".format(self.end_eff_ids))
 
         self.hl_index = self.pin_robot.model.getFrameId("HL_ANKLE")
         self.hr_index = self.pin_robot.model.getFrameId("HR_ANKLE")
