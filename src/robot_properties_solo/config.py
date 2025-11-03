@@ -17,6 +17,7 @@ from pinocchio.utils import zero
 from pinocchio.robot_wrapper import RobotWrapper
 from robot_properties_solo.robot_resources import Resources
 
+
 class SoloAbstract(object):
     """ Abstract class used for all Solo robots. """
 
@@ -363,3 +364,18 @@ class UnitreeGo2Config(SoloAbstract):
 
     rot_base_to_imu = np.identity(3)
     r_base_to_imu = np.array([0.10407, -0.00635, 0.01540])
+
+
+class AnymalConfig(SoloAbstract):
+    robot_family = "anymal"
+    robot_name = "anymal"
+
+    resources = Resources(robot_name)
+    meshes_path = resources.meshes_path
+    urdf_path = resources.urdf_path
+    mjcf_path = resources.mjcf_path
+
+    # The inertia of a single blmc_motor.
+    motor_inertia = 0.0000045
+    # The motor gear ratio.
+    motor_gear_ration = 9.0

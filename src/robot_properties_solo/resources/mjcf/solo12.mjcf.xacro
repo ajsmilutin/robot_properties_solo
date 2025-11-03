@@ -37,7 +37,7 @@
         <light diffuse=".5 .5 .5" pos="0 0 3" dir="0 0 -1"/>
         <body name="base_link" pos="0 0 0.4" euler="0 0 0">
             <joint name="free_joint" type="free"/>
-            <inertial mass="1.52123725" pos="0 0 0" fullinertia="0.00266220 0.01388510 0.01605370 -0.00003684 -0.00001716 -0.00000009"/>
+            <inertial mass="1.62123725" pos="0 0 0" fullinertia="0.00266220 0.01388510 0.01605370 -0.00003684 -0.00001716 -0.00000009"/>
             <geom type="mesh" mesh="solo_12_base"/>
             <body name="FL_SHOULDER" pos="0.2141 0.0875 0">
                 <joint name="FL_HAA" type="hinge" axis="1 0 0" range="-1.0 1.0" damping="0.009" frictionloss="0.003"/>
