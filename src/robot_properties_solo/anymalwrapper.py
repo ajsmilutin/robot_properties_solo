@@ -29,7 +29,7 @@ class AnymalRobot():
         self.end_effector_names = []
         controlled_joints = []
 
-        for leg in ["LF", "RF", "LH", "RH"]:
+        for leg in ["FL", "FR", "HL", "HR"]:
             controlled_joints += [leg + "_HAA", leg + "_HFE", leg + "_KFE"]
             self.end_eff_ids.append(
                 self.pin_robot.model.getFrameId(leg + "_FOOT")
@@ -39,10 +39,10 @@ class AnymalRobot():
         self.joint_names = controlled_joints
         self.nb_ee = len(self.end_effector_names)
 
-        self.hl_index = self.pin_robot.model.getFrameId("LH_FOOT")
-        self.hr_index = self.pin_robot.model.getFrameId("RH_FOOT")
-        self.fl_index = self.pin_robot.model.getFrameId("LF_FOOT")
-        self.fr_index = self.pin_robot.model.getFrameId("RF_FOOT")
+        self.hl_index = self.pin_robot.model.getFrameId("HL_FOOT")
+        self.hr_index = self.pin_robot.model.getFrameId("HR_FOOT")
+        self.fl_index = self.pin_robot.model.getFrameId("FL_FOOT")
+        self.fr_index = self.pin_robot.model.getFrameId("FR_FOOT")
 
     def update_pinocchio(self, q, dq):
         """Updates the pinocchio robot.

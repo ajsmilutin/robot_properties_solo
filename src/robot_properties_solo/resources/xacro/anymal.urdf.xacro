@@ -9,11 +9,11 @@
     xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
     xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
     <!-- Base link -->
-    <link name="base">
+    <link name="base_link">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/base.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/base.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <collision>
@@ -56,7 +56,7 @@
     </link>
     <!-- Fixed joint to add dummy inertia link -->
     <joint name="base_to_base_inertia" type="fixed">
-        <parent link="base"/>
+        <parent link="base_link"/>
         <child link="base_inertia"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
     </joint>
@@ -70,7 +70,7 @@
     </link>
     <!-- Fixed joint base topshell -->
     <joint name="base_top_shell" type="fixed">
-        <parent link="base"/>
+        <parent link="base_link"/>
         <child link="top_shell"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
     </joint>
@@ -79,7 +79,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/top_shell.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/top_shell.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -90,7 +90,7 @@
     </link>
     <!-- Fixed joint base topshell -->
     <joint name="base_bottom_shell" type="fixed">
-        <parent link="base"/>
+        <parent link="base_link"/>
         <child link="bottom_shell"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
     </joint>
@@ -99,7 +99,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/bottom_shell.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/bottom_shell.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -110,7 +110,7 @@
     </link>
     <!-- Fixed joint base remote -->
     <joint name="base_remote" type="fixed">
-        <parent link="base"/>
+        <parent link="base_link"/>
         <child link="remote"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
     </joint>
@@ -119,7 +119,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/remote.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/remote.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -130,7 +130,7 @@
     </link>
     <!-- Fixed joint base handle -->
     <joint name="base_handle" type="fixed">
-        <parent link="base"/>
+        <parent link="base_link"/>
         <child link="handle"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
     </joint>
@@ -139,7 +139,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/handle.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/handle.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -150,7 +150,7 @@
     </link>
     <!-- Fixed joint base face -->
     <joint name="base_face_front" type="fixed">
-        <parent link="base"/>
+        <parent link="base_link"/>
         <child link="face_front"/>
         <origin rpy="0 0 -0.0" xyz="0.4145 0 0"/>
     </joint>
@@ -159,7 +159,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/face.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/face.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <collision>
@@ -198,7 +198,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/depth_camera.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/depth_camera.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -252,7 +252,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/wide_angle_camera.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/wide_angle_camera.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -271,7 +271,7 @@
     <link name="wide_angle_camera_front_camera_parent"/>
     <!-- Fixed joint base face -->
     <joint name="base_face_rear" type="fixed">
-        <parent link="base"/>
+        <parent link="base_link"/>
         <child link="face_rear"/>
         <origin rpy="0 0 3.14159265359" xyz="-0.4145 0 0"/>
     </joint>
@@ -280,7 +280,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/face.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/face.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <collision>
@@ -319,7 +319,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/depth_camera.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/depth_camera.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -373,7 +373,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/wide_angle_camera.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/wide_angle_camera.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -392,7 +392,7 @@
     <link name="wide_angle_camera_rear_camera_parent"/>
     <!-- Fixed joint base battery -->
     <joint name="base_battery" type="fixed">
-        <parent link="base"/>
+        <parent link="base_link"/>
         <child link="battery"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
     </joint>
@@ -401,7 +401,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/battery.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/battery.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -412,7 +412,7 @@
     </link>
     <!-- Fixed joint to add docking  -->
     <joint name="base_to_docking_hatch_cover" type="fixed">
-        <parent link="base"/>
+        <parent link="base_link"/>
         <child link="docking_hatch_cover"/>
         <origin rpy="0 0 0" xyz="0.343 0.0 -0.07"/>
     </joint>
@@ -446,14 +446,14 @@
         </inertial>
     </link>
     <joint name="imu_joint" type="fixed">
-        <parent link="base"/>
+        <parent link="base_link"/>
         <child link="imu_link"/>
-        <origin rpy="0.0 0.0 1.57079632679" xyz="0.2488 0.00835 0.04628"/>
+        <origin rpy="0.0 0.0 0.0" xyz="0.2488 0.00835 0.04628"/>
     </joint>
     <!-- Camera joint -->
     <!-- Is located between the two back screw holes at ground level. -->
     <joint name="base_to_depth_camera_left_camera" type="fixed">
-        <parent link="base"/>
+        <parent link="base_link"/>
         <child link="depth_camera_left_camera"/>
         <origin rpy="0.0 0.523598775598 1.57079632679" xyz="0.0 0.07646 0.02905"/>
     </joint>
@@ -462,7 +462,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/depth_camera.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/depth_camera.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -507,7 +507,7 @@
     <!-- Camera joint -->
     <!-- Is located between the two back screw holes at ground level. -->
     <joint name="base_to_depth_camera_right_camera" type="fixed">
-        <parent link="base"/>
+        <parent link="base_link"/>
         <child link="depth_camera_right_camera"/>
         <origin rpy="0.0 0.523598775598 -1.57079632679" xyz="0.0 -0.07646 0.02905"/>
     </joint>
@@ -516,7 +516,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/depth_camera.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/depth_camera.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -560,7 +560,7 @@
     <link name="depth_camera_right_color_optical_frame"/>
     <!-- parent to cage joint, located between mounting plate on trunk and the cage -->
     <joint name="base_to_lidar_cage" type="fixed">
-        <parent link="base"/>
+        <parent link="base_link"/>
         <child link="lidar_cage"/>
         <origin rpy="0 0 0" xyz="-0.364 0.0 0.0735"/>
     </joint>
@@ -569,7 +569,7 @@
         <visual>
             <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/lidar_cage.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/lidar_cage.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <collision>
@@ -600,22 +600,22 @@
         <visual>
             <origin xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/lidar.dae"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/lidar.dae"/>
             </geometry>
         </visual>
     </link>
     <!-- joint base HAA -->
-    <joint name="base_LF_HAA" type="fixed">
-        <parent link="base"/>
-        <child link="LF_HAA"/>
+    <joint name="base_FL_HAA" type="fixed">
+        <parent link="base_link"/>
+        <child link="FL_HAA"/>
         <origin rpy="2.61799387799 0 0.0" xyz="0.2999 0.104 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="LF_HAA">
+    <link name="FL_HAA">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/drive.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/drive.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -625,16 +625,16 @@
         </inertial>
     </link>
     <!-- joint Drive output -->
-    <joint name="LF_HAA" type="revolute">
-        <parent link="LF_HAA"/>
-        <child link="LF_HIP"/>
+    <joint name="FL_HAA" type="revolute">
+        <parent link="FL_HAA"/>
+        <child link="FL_HIP"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
-        <limit effort="80.0" lower="-0.72" upper="0.49" velocity="7.5"/>
+        <limit effort="80.0" lower="-0.72" upper="0.72" velocity="7.5"/>
         <dynamics damping="0.0" friction="0.0"/>
     </joint>
     <!-- Drive output link -->
-    <link name="LF_HIP">
+    <link name="FL_HIP">
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="0.001"/>
@@ -642,17 +642,17 @@
         </inertial>
     </link>
     <!-- joint HAA hip -->
-    <joint name="LF_HIP_LF_hip_fixed" type="fixed">
-        <parent link="LF_HIP"/>
-        <child link="LF_hip_fixed"/>
+    <joint name="FL_HIP_FL_hip_fixed" type="fixed">
+        <parent link="FL_HIP"/>
+        <child link="FL_hip_fixed"/>
         <origin rpy="-2.61799387799 0 0.0" xyz="0 0 0"/>
     </joint>
     <!-- Hip link -->
-    <link name="LF_hip_fixed">
+    <link name="FL_hip_fixed">
         <visual>
             <origin rpy="0 0 0.0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/hip_l.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/hip_l.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -662,17 +662,17 @@
         </inertial>
     </link>
     <!-- joint hip HFE -->
-    <joint name="LF_hip_fixed_LF_HFE" type="fixed">
-        <parent link="LF_hip_fixed"/>
-        <child link="LF_HFE"/>
+    <joint name="FL_hip_fixed_FL_HFE" type="fixed">
+        <parent link="FL_hip_fixed"/>
+        <child link="FL_HFE"/>
         <origin rpy="0 0 1.57079632679" xyz="0.0599 0.08381 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="LF_HFE">
+    <link name="FL_HFE">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/drive.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/drive.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <collision>
@@ -688,16 +688,16 @@
         </inertial>
     </link>
     <!-- joint Drive output -->
-    <joint name="LF_HFE" type="revolute">
-        <parent link="LF_HFE"/>
-        <child link="LF_THIGH"/>
+    <joint name="FL_HFE" type="revolute">
+        <parent link="FL_HFE"/>
+        <child link="FL_THIGH"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
         <limit effort="80.0" lower="-9.42477796077" upper="9.42477796077" velocity="7.5"/>
         <dynamics damping="0.0" friction="0.0"/>
     </joint>
     <!-- Drive output link -->
-    <link name="LF_THIGH">
+    <link name="FL_THIGH">
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="0.001"/>
@@ -705,17 +705,17 @@
         </inertial>
     </link>
     <!-- joint HFE thigh -->
-    <joint name="LF_THIGH_LF_thigh_fixed" type="fixed">
-        <parent link="LF_THIGH"/>
-        <child link="LF_thigh_fixed"/>
+    <joint name="FL_THIGH_FL_thigh_fixed" type="fixed">
+        <parent link="FL_THIGH"/>
+        <child link="FL_thigh_fixed"/>
         <origin rpy="0 0 -1.57079632679" xyz="0 0 0"/>
     </joint>
     <!-- Thigh link -->
-    <link name="LF_thigh_fixed">
+    <link name="FL_thigh_fixed">
         <visual>
             <origin rpy="0 0 0.0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/thigh.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/thigh.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <!-- Thigh collision -->
@@ -738,17 +738,17 @@
         </inertial>
     </link>
     <!-- joint thigh KFE -->
-    <joint name="LF_thigh_fixed_LF_KFE" type="fixed">
-        <parent link="LF_thigh_fixed"/>
-        <child link="LF_KFE"/>
+    <joint name="FL_thigh_fixed_FL_KFE" type="fixed">
+        <parent link="FL_thigh_fixed"/>
+        <child link="FL_KFE"/>
         <origin rpy="0 0 1.57079632679" xyz="0.0 0.1003 -0.285"/>
     </joint>
     <!-- Drive link -->
-    <link name="LF_KFE">
+    <link name="FL_KFE">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/drive.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/drive.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <collision>
@@ -764,16 +764,16 @@
         </inertial>
     </link>
     <!-- joint Drive output -->
-    <joint name="LF_KFE" type="revolute">
-        <parent link="LF_KFE"/>
-        <child link="LF_SHANK"/>
+    <joint name="FL_KFE" type="revolute">
+        <parent link="FL_KFE"/>
+        <child link="FL_SHANK"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
         <limit effort="80.0" lower="-9.42477796077" upper="9.42477796077" velocity="7.5"/>
         <dynamics damping="0.0" friction="0.0"/>
     </joint>
     <!-- Drive output link -->
-    <link name="LF_SHANK">
+    <link name="FL_SHANK">
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="0.001"/>
@@ -781,17 +781,17 @@
         </inertial>
     </link>
     <!-- joint KFE shank -->
-    <joint name="LF_shank_LF_shank_fixed" type="fixed">
-        <parent link="LF_SHANK"/>
-        <child link="LF_shank_fixed"/>
+    <joint name="FL_shank_FL_shank_fixed" type="fixed">
+        <parent link="FL_SHANK"/>
+        <child link="FL_shank_fixed"/>
         <origin rpy="0 0 -1.57079632679" xyz="0 0 0"/>
     </joint>
     <!-- Shank link -->
-    <link name="LF_shank_fixed">
+    <link name="FL_shank_fixed">
         <visual>
             <origin rpy="0 0 0.0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/shank_l.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/shank_l.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <!-- Shank collision -->
@@ -815,51 +815,51 @@
     </link>
     <!-- Leg configurations: xx (knees bent inwards), xo (knees bent backwards) -->
     <!-- joint shank foot -->
-    <joint name="LF_shank_fixed_LF_FOOT" type="fixed">
-        <parent link="LF_shank_fixed"/>
-        <child link="LF_FOOT"/>
-        <origin rpy="0 0 0" xyz="0.08795 0.01305 -0.33797"/>
+    <joint name="FL_shank_fixed_FL_FOOT" type="fixed">
+        <parent link="FL_shank_fixed"/>
+        <child link="FL_FOOT"/>
+        <origin rpy="0 0 0" xyz="0.08795 0.01305 -0.31547"/>
     </joint>
     <!-- Foot link -->
-    <link name="LF_FOOT">
+    <link name="FL_FOOT">
         <visual>
-            <origin rpy="0 0 -0.785398163397" xyz="0 0 0"/>
+            <origin rpy="0 0 -0.785398163397" xyz="0 0 -0.0225"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/foot.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/foot.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <!-- Adapter collision -->
         <collision>
-            <origin rpy="0 0 0" xyz="0 0 0.168985"/>
+            <origin rpy="0 0 0" xyz="0 0 0.146485"/>
             <geometry>
                 <cylinder length="0.282504" radius="0.0175"/>
             </geometry>
         </collision>
         <!-- Foot collision -->
         <collision>
-            <origin xyz="0 0 0.0225"/>
+            <origin xyz="0 0 0.0"/>
             <geometry>
                 <sphere radius="0.03"/>
             </geometry>
         </collision>
         <inertial>
-            <origin rpy="0 0 0" xyz="0.00948 -0.00948 0.1468"/>
+            <origin rpy="0 0 0" xyz="0.00948 -0.00948 0.1243"/>
             <mass value="0.25"/>
             <inertia ixx="0.00317174097" ixy="2.63048e-06" ixz="6.815581e-05" iyy="0.00317174092" iyz="6.815583e-05" izz="8.319196e-05"/>
         </inertial>
     </link>
     <!-- joint base HAA -->
-    <joint name="base_RF_HAA" type="fixed">
-        <parent link="base"/>
-        <child link="RF_HAA"/>
+    <joint name="base_FR_HAA" type="fixed">
+        <parent link="base_link"/>
+        <child link="FR_HAA"/>
         <origin rpy="-2.61799387799 0 0.0" xyz="0.2999 -0.104 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="RF_HAA">
+    <link name="FR_HAA">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/drive.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/drive.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -869,16 +869,16 @@
         </inertial>
     </link>
     <!-- joint Drive output -->
-    <joint name="RF_HAA" type="revolute">
-        <parent link="RF_HAA"/>
-        <child link="RF_HIP"/>
+    <joint name="FR_HAA" type="revolute">
+        <parent link="FR_HAA"/>
+        <child link="FR_HIP"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
-        <limit effort="80.0" lower="-0.49" upper="0.72" velocity="7.5"/>
+        <limit effort="80.0" lower="-0.72" upper="0.72" velocity="7.5"/>
         <dynamics damping="0.0" friction="0.0"/>
     </joint>
     <!-- Drive output link -->
-    <link name="RF_HIP">
+    <link name="FR_HIP">
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="0.001"/>
@@ -886,17 +886,17 @@
         </inertial>
     </link>
     <!-- joint HAA hip -->
-    <joint name="RF_HIP_RF_hip_fixed" type="fixed">
-        <parent link="RF_HIP"/>
-        <child link="RF_hip_fixed"/>
+    <joint name="FR_HIP_FR_hip_fixed" type="fixed">
+        <parent link="FR_HIP"/>
+        <child link="FR_hip_fixed"/>
         <origin rpy="2.61799387799 0 0.0" xyz="0 0 0"/>
     </joint>
     <!-- Hip link -->
-    <link name="RF_hip_fixed">
+    <link name="FR_hip_fixed">
         <visual>
             <origin rpy="0 0 0.0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/hip_r.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/hip_r.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -906,17 +906,17 @@
         </inertial>
     </link>
     <!-- joint hip HFE -->
-    <joint name="RF_hip_fixed_RF_HFE" type="fixed">
-        <parent link="RF_hip_fixed"/>
-        <child link="RF_HFE"/>
+    <joint name="FR_hip_fixed_FR_HFE" type="fixed">
+        <parent link="FR_hip_fixed"/>
+        <child link="FR_HFE"/>
         <origin rpy="0 0 -1.57079632679" xyz="0.0599 -0.08381 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="RF_HFE">
+    <link name="FR_HFE">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/drive.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/drive.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <collision>
@@ -932,16 +932,16 @@
         </inertial>
     </link>
     <!-- joint Drive output -->
-    <joint name="RF_HFE" type="revolute">
-        <parent link="RF_HFE"/>
-        <child link="RF_THIGH"/>
+    <joint name="FR_HFE" type="revolute">
+        <parent link="FR_HFE"/>
+        <child link="FR_THIGH"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="-1 0 0"/>
         <limit effort="80.0" lower="-9.42477796077" upper="9.42477796077" velocity="7.5"/>
         <dynamics damping="0.0" friction="0.0"/>
     </joint>
     <!-- Drive output link -->
-    <link name="RF_THIGH">
+    <link name="FR_THIGH">
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="0.001"/>
@@ -949,17 +949,17 @@
         </inertial>
     </link>
     <!-- joint HFE thigh -->
-    <joint name="RF_THIGH_RF_thigh_fixed" type="fixed">
-        <parent link="RF_THIGH"/>
-        <child link="RF_thigh_fixed"/>
+    <joint name="FR_THIGH_FR_thigh_fixed" type="fixed">
+        <parent link="FR_THIGH"/>
+        <child link="FR_thigh_fixed"/>
         <origin rpy="0 0 1.57079632679" xyz="0 0 0"/>
     </joint>
     <!-- Thigh link -->
-    <link name="RF_thigh_fixed">
+    <link name="FR_thigh_fixed">
         <visual>
             <origin rpy="0 0 -3.14159265359" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/thigh.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/thigh.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <!-- Thigh collision -->
@@ -982,17 +982,17 @@
         </inertial>
     </link>
     <!-- joint thigh KFE -->
-    <joint name="RF_thigh_fixed_RF_KFE" type="fixed">
-        <parent link="RF_thigh_fixed"/>
-        <child link="RF_KFE"/>
+    <joint name="FR_thigh_fixed_FR_KFE" type="fixed">
+        <parent link="FR_thigh_fixed"/>
+        <child link="FR_KFE"/>
         <origin rpy="0 0 -1.57079632679" xyz="0.0 -0.1003 -0.285"/>
     </joint>
     <!-- Drive link -->
-    <link name="RF_KFE">
+    <link name="FR_KFE">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/drive.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/drive.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <collision>
@@ -1008,16 +1008,16 @@
         </inertial>
     </link>
     <!-- joint Drive output -->
-    <joint name="RF_KFE" type="revolute">
-        <parent link="RF_KFE"/>
-        <child link="RF_SHANK"/>
+    <joint name="FR_KFE" type="revolute">
+        <parent link="FR_KFE"/>
+        <child link="FR_SHANK"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="-1 0 0"/>
         <limit effort="80.0" lower="-9.42477796077" upper="9.42477796077" velocity="7.5"/>
         <dynamics damping="0.0" friction="0.0"/>
     </joint>
     <!-- Drive output link -->
-    <link name="RF_SHANK">
+    <link name="FR_SHANK">
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="0.001"/>
@@ -1025,17 +1025,17 @@
         </inertial>
     </link>
     <!-- joint KFE shank -->
-    <joint name="RF_shank_RF_shank_fixed" type="fixed">
-        <parent link="RF_SHANK"/>
-        <child link="RF_shank_fixed"/>
+    <joint name="FR_shank_FR_shank_fixed" type="fixed">
+        <parent link="FR_SHANK"/>
+        <child link="FR_shank_fixed"/>
         <origin rpy="0 0 1.57079632679" xyz="0 0 0"/>
     </joint>
     <!-- Shank link -->
-    <link name="RF_shank_fixed">
+    <link name="FR_shank_fixed">
         <visual>
             <origin rpy="0 0 0.0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/shank_r.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/shank_r.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <!-- Shank collision -->
@@ -1059,51 +1059,51 @@
     </link>
     <!-- Leg configurations: xx (knees bent inwards), xo (knees bent backwards) -->
     <!-- joint shank foot -->
-    <joint name="RF_shank_fixed_RF_FOOT" type="fixed">
-        <parent link="RF_shank_fixed"/>
-        <child link="RF_FOOT"/>
-        <origin rpy="0 0 0" xyz="0.08795 -0.01305 -0.33797"/>
+    <joint name="FR_shank_fixed_FR_FOOT" type="fixed">
+        <parent link="FR_shank_fixed"/>
+        <child link="FR_FOOT"/>
+        <origin rpy="0 0 0" xyz="0.08795 -0.01305 -0.31547"/>
     </joint>
     <!-- Foot link -->
-    <link name="RF_FOOT">
+    <link name="FR_FOOT">
         <visual>
-            <origin rpy="0 0 0.785398163397" xyz="0 0 0"/>
+            <origin rpy="0 0 0.785398163397" xyz="0 0 -0.0225"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/foot.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/foot.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <!-- Adapter collision -->
         <collision>
-            <origin rpy="0 0 0" xyz="0 0 0.168985"/>
+            <origin rpy="0 0 0" xyz="0 0 0.146485"/>
             <geometry>
                 <cylinder length="0.282504" radius="0.0175"/>
             </geometry>
         </collision>
         <!-- Foot collision -->
         <collision>
-            <origin xyz="0 0 0.0225"/>
+            <origin xyz="0 0 0.0"/>
             <geometry>
                 <sphere radius="0.03"/>
             </geometry>
         </collision>
         <inertial>
-            <origin rpy="0 0 0" xyz="0.00948 0.00948 0.1468"/>
+            <origin rpy="0 0 0" xyz="0.00948 0.00948 0.1243"/>
             <mass value="0.25"/>
             <inertia ixx="0.00317174097" ixy="-2.63048e-06" ixz="6.815581e-05" iyy="0.00317174092" iyz="-6.815583e-05" izz="8.319196e-05"/>
         </inertial>
     </link>
     <!-- joint base HAA -->
-    <joint name="base_LH_HAA" type="fixed">
-        <parent link="base"/>
-        <child link="LH_HAA"/>
+    <joint name="base_HL_HAA" type="fixed">
+        <parent link="base_link"/>
+        <child link="HL_HAA"/>
         <origin rpy="-2.61799387799 0 -3.14159265359" xyz="-0.2999 0.104 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="LH_HAA">
+    <link name="HL_HAA">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/drive.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/drive.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -1113,16 +1113,16 @@
         </inertial>
     </link>
     <!-- joint Drive output -->
-    <joint name="LH_HAA" type="revolute">
-        <parent link="LH_HAA"/>
-        <child link="LH_HIP"/>
+    <joint name="HL_HAA" type="revolute">
+        <parent link="HL_HAA"/>
+        <child link="HL_HIP"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="-1 0 0"/>
-        <limit effort="80.0" lower="-0.72" upper="0.49" velocity="7.5"/>
+        <limit effort="80.0" lower="-0.72" upper="0.72" velocity="7.5"/>
         <dynamics damping="0.0" friction="0.0"/>
     </joint>
     <!-- Drive output link -->
-    <link name="LH_HIP">
+    <link name="HL_HIP">
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="0.001"/>
@@ -1130,17 +1130,17 @@
         </inertial>
     </link>
     <!-- joint HAA hip -->
-    <joint name="LH_HIP_LH_hip_fixed" type="fixed">
-        <parent link="LH_HIP"/>
-        <child link="LH_hip_fixed"/>
+    <joint name="HL_HIP_HL_hip_fixed" type="fixed">
+        <parent link="HL_HIP"/>
+        <child link="HL_hip_fixed"/>
         <origin rpy="-2.61799387799 0 -3.14159265359" xyz="0 0 0"/>
     </joint>
     <!-- Hip link -->
-    <link name="LH_hip_fixed">
+    <link name="HL_hip_fixed">
         <visual>
             <origin rpy="0 0 -3.14159265359" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/hip_r.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/hip_r.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -1150,17 +1150,17 @@
         </inertial>
     </link>
     <!-- joint hip HFE -->
-    <joint name="LH_hip_fixed_LH_HFE" type="fixed">
-        <parent link="LH_hip_fixed"/>
-        <child link="LH_HFE"/>
+    <joint name="HL_hip_fixed_HL_HFE" type="fixed">
+        <parent link="HL_hip_fixed"/>
+        <child link="HL_HFE"/>
         <origin rpy="0 0 1.57079632679" xyz="-0.0599 0.08381 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="LH_HFE">
+    <link name="HL_HFE">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/drive.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/drive.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <collision>
@@ -1176,16 +1176,16 @@
         </inertial>
     </link>
     <!-- joint Drive output -->
-    <joint name="LH_HFE" type="revolute">
-        <parent link="LH_HFE"/>
-        <child link="LH_THIGH"/>
+    <joint name="HL_HFE" type="revolute">
+        <parent link="HL_HFE"/>
+        <child link="HL_THIGH"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
         <limit effort="80.0" lower="-9.42477796077" upper="9.42477796077" velocity="7.5"/>
         <dynamics damping="0.0" friction="0.0"/>
     </joint>
     <!-- Drive output link -->
-    <link name="LH_THIGH">
+    <link name="HL_THIGH">
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="0.001"/>
@@ -1193,17 +1193,17 @@
         </inertial>
     </link>
     <!-- joint HFE thigh -->
-    <joint name="LH_THIGH_LH_thigh_fixed" type="fixed">
-        <parent link="LH_THIGH"/>
-        <child link="LH_thigh_fixed"/>
+    <joint name="HL_THIGH_HL_thigh_fixed" type="fixed">
+        <parent link="HL_THIGH"/>
+        <child link="HL_thigh_fixed"/>
         <origin rpy="0 0 -1.57079632679" xyz="0 0 0"/>
     </joint>
     <!-- Thigh link -->
-    <link name="LH_thigh_fixed">
+    <link name="HL_thigh_fixed">
         <visual>
             <origin rpy="0 0 0.0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/thigh.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/thigh.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <!-- Thigh collision -->
@@ -1226,17 +1226,17 @@
         </inertial>
     </link>
     <!-- joint thigh KFE -->
-    <joint name="LH_thigh_fixed_LH_KFE" type="fixed">
-        <parent link="LH_thigh_fixed"/>
-        <child link="LH_KFE"/>
+    <joint name="HL_thigh_fixed_HL_KFE" type="fixed">
+        <parent link="HL_thigh_fixed"/>
+        <child link="HL_KFE"/>
         <origin rpy="0 0 1.57079632679" xyz="-0.0 0.1003 -0.285"/>
     </joint>
     <!-- Drive link -->
-    <link name="LH_KFE">
+    <link name="HL_KFE">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/drive.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/drive.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <collision>
@@ -1252,16 +1252,16 @@
         </inertial>
     </link>
     <!-- joint Drive output -->
-    <joint name="LH_KFE" type="revolute">
-        <parent link="LH_KFE"/>
-        <child link="LH_SHANK"/>
+    <joint name="HL_KFE" type="revolute">
+        <parent link="HL_KFE"/>
+        <child link="HL_SHANK"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
         <limit effort="80.0" lower="-9.42477796077" upper="9.42477796077" velocity="7.5"/>
         <dynamics damping="0.0" friction="0.0"/>
     </joint>
     <!-- Drive output link -->
-    <link name="LH_SHANK">
+    <link name="HL_SHANK">
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="0.001"/>
@@ -1269,17 +1269,17 @@
         </inertial>
     </link>
     <!-- joint KFE shank -->
-    <joint name="LH_shank_LH_shank_fixed" type="fixed">
-        <parent link="LH_SHANK"/>
-        <child link="LH_shank_fixed"/>
+    <joint name="HL_shank_HL_shank_fixed" type="fixed">
+        <parent link="HL_SHANK"/>
+        <child link="HL_shank_fixed"/>
         <origin rpy="0 0 -1.57079632679" xyz="0 0 0"/>
     </joint>
     <!-- Shank link -->
-    <link name="LH_shank_fixed">
+    <link name="HL_shank_fixed">
         <visual>
             <origin rpy="0 0 -3.14159265359" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/shank_r.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/shank_r.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <!-- Shank collision -->
@@ -1303,51 +1303,51 @@
     </link>
     <!-- Leg configurations: xx (knees bent inwards), xo (knees bent backwards) -->
     <!-- joint shank foot -->
-    <joint name="LH_shank_fixed_LH_FOOT" type="fixed">
-        <parent link="LH_shank_fixed"/>
-        <child link="LH_FOOT"/>
-        <origin rpy="0 0 0" xyz="-0.08795 0.01305 -0.33797"/>
+    <joint name="HL_shank_fixed_HL_FOOT" type="fixed">
+        <parent link="HL_shank_fixed"/>
+        <child link="HL_FOOT"/>
+        <origin rpy="0 0 0" xyz="-0.08795 0.01305 -0.31547"/>
     </joint>
     <!-- Foot link -->
-    <link name="LH_FOOT">
+    <link name="HL_FOOT">
         <visual>
-            <origin rpy="0 0 -2.35619449019" xyz="0 0 0"/>
+            <origin rpy="0 0 -2.35619449019" xyz="0 0 -0.0225"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/foot.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/foot.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <!-- Adapter collision -->
         <collision>
-            <origin rpy="0 0 0" xyz="0 0 0.168985"/>
+            <origin rpy="0 0 0" xyz="0 0 0.146485"/>
             <geometry>
                 <cylinder length="0.282504" radius="0.0175"/>
             </geometry>
         </collision>
         <!-- Foot collision -->
         <collision>
-            <origin xyz="0 0 0.0225"/>
+            <origin xyz="0 0 0.0"/>
             <geometry>
                 <sphere radius="0.03"/>
             </geometry>
         </collision>
         <inertial>
-            <origin rpy="0 0 0" xyz="-0.00948 -0.00948 0.1468"/>
+            <origin rpy="0 0 0" xyz="-0.00948 -0.00948 0.1243"/>
             <mass value="0.25"/>
             <inertia ixx="0.00317174097" ixy="-2.63048e-06" ixz="-6.815581e-05" iyy="0.00317174092" iyz="6.815583e-05" izz="8.319196e-05"/>
         </inertial>
     </link>
     <!-- joint base HAA -->
-    <joint name="base_RH_HAA" type="fixed">
-        <parent link="base"/>
-        <child link="RH_HAA"/>
+    <joint name="base_HR_HAA" type="fixed">
+        <parent link="base_link"/>
+        <child link="HR_HAA"/>
         <origin rpy="2.61799387799 0 -3.14159265359" xyz="-0.2999 -0.104 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="RH_HAA">
+    <link name="HR_HAA">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/drive.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/drive.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -1357,16 +1357,16 @@
         </inertial>
     </link>
     <!-- joint Drive output -->
-    <joint name="RH_HAA" type="revolute">
-        <parent link="RH_HAA"/>
-        <child link="RH_HIP"/>
+    <joint name="HR_HAA" type="revolute">
+        <parent link="HR_HAA"/>
+        <child link="HR_HIP"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="-1 0 0"/>
-        <limit effort="80.0" lower="-0.49" upper="0.72" velocity="7.5"/>
+        <limit effort="80.0" lower="-0.72" upper="0.72" velocity="7.5"/>
         <dynamics damping="0.0" friction="0.0"/>
     </joint>
     <!-- Drive output link -->
-    <link name="RH_HIP">
+    <link name="HR_HIP">
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="0.001"/>
@@ -1374,17 +1374,17 @@
         </inertial>
     </link>
     <!-- joint HAA hip -->
-    <joint name="RH_HIP_RH_hip_fixed" type="fixed">
-        <parent link="RH_HIP"/>
-        <child link="RH_hip_fixed"/>
+    <joint name="HR_HIP_HR_hip_fixed" type="fixed">
+        <parent link="HR_HIP"/>
+        <child link="HR_hip_fixed"/>
         <origin rpy="2.61799387799 0 -3.14159265359" xyz="0 0 0"/>
     </joint>
     <!-- Hip link -->
-    <link name="RH_hip_fixed">
+    <link name="HR_hip_fixed">
         <visual>
             <origin rpy="0 0 -3.14159265359" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/hip_l.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/hip_l.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>
@@ -1394,17 +1394,17 @@
         </inertial>
     </link>
     <!-- joint hip HFE -->
-    <joint name="RH_hip_fixed_RH_HFE" type="fixed">
-        <parent link="RH_hip_fixed"/>
-        <child link="RH_HFE"/>
+    <joint name="HR_hip_fixed_HR_HFE" type="fixed">
+        <parent link="HR_hip_fixed"/>
+        <child link="HR_HFE"/>
         <origin rpy="0 0 -1.57079632679" xyz="-0.0599 -0.08381 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="RH_HFE">
+    <link name="HR_HFE">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/drive.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/drive.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <collision>
@@ -1420,16 +1420,16 @@
         </inertial>
     </link>
     <!-- joint Drive output -->
-    <joint name="RH_HFE" type="revolute">
-        <parent link="RH_HFE"/>
-        <child link="RH_THIGH"/>
+    <joint name="HR_HFE" type="revolute">
+        <parent link="HR_HFE"/>
+        <child link="HR_THIGH"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="-1 0 0"/>
         <limit effort="80.0" lower="-9.42477796077" upper="9.42477796077" velocity="7.5"/>
         <dynamics damping="0.0" friction="0.0"/>
     </joint>
     <!-- Drive output link -->
-    <link name="RH_THIGH">
+    <link name="HR_THIGH">
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="0.001"/>
@@ -1437,17 +1437,17 @@
         </inertial>
     </link>
     <!-- joint HFE thigh -->
-    <joint name="RH_THIGH_RH_thigh_fixed" type="fixed">
-        <parent link="RH_THIGH"/>
-        <child link="RH_thigh_fixed"/>
+    <joint name="HR_THIGH_HR_thigh_fixed" type="fixed">
+        <parent link="HR_THIGH"/>
+        <child link="HR_thigh_fixed"/>
         <origin rpy="0 0 1.57079632679" xyz="0 0 0"/>
     </joint>
     <!-- Thigh link -->
-    <link name="RH_thigh_fixed">
+    <link name="HR_thigh_fixed">
         <visual>
             <origin rpy="0 0 -3.14159265359" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/thigh.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/thigh.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <!-- Thigh collision -->
@@ -1470,17 +1470,17 @@
         </inertial>
     </link>
     <!-- joint thigh KFE -->
-    <joint name="RH_thigh_fixed_RH_KFE" type="fixed">
-        <parent link="RH_thigh_fixed"/>
-        <child link="RH_KFE"/>
+    <joint name="HR_thigh_fixed_HR_KFE" type="fixed">
+        <parent link="HR_thigh_fixed"/>
+        <child link="HR_KFE"/>
         <origin rpy="0 0 -1.57079632679" xyz="-0.0 -0.1003 -0.285"/>
     </joint>
     <!-- Drive link -->
-    <link name="RH_KFE">
+    <link name="HR_KFE">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/drive.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/drive.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <collision>
@@ -1496,16 +1496,16 @@
         </inertial>
     </link>
     <!-- joint Drive output -->
-    <joint name="RH_KFE" type="revolute">
-        <parent link="RH_KFE"/>
-        <child link="RH_SHANK"/>
+    <joint name="HR_KFE" type="revolute">
+        <parent link="HR_KFE"/>
+        <child link="HR_SHANK"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="-1 0 0"/>
         <limit effort="80.0" lower="-9.42477796077" upper="9.42477796077" velocity="7.5"/>
         <dynamics damping="0.0" friction="0.0"/>
     </joint>
     <!-- Drive output link -->
-    <link name="RH_SHANK">
+    <link name="HR_SHANK">
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="0.001"/>
@@ -1513,17 +1513,17 @@
         </inertial>
     </link>
     <!-- joint KFE shank -->
-    <joint name="RH_shank_RH_shank_fixed" type="fixed">
-        <parent link="RH_SHANK"/>
-        <child link="RH_shank_fixed"/>
+    <joint name="HR_shank_HR_shank_fixed" type="fixed">
+        <parent link="HR_SHANK"/>
+        <child link="HR_shank_fixed"/>
         <origin rpy="0 0 1.57079632679" xyz="0 0 0"/>
     </joint>
     <!-- Shank link -->
-    <link name="RH_shank_fixed">
+    <link name="HR_shank_fixed">
         <visual>
             <origin rpy="0 0 -3.14159265359" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/shank_l.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/shank_l.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <!-- Shank collision -->
@@ -1547,42 +1547,42 @@
     </link>
     <!-- Leg configurations: xx (knees bent inwards), xo (knees bent backwards) -->
     <!-- joint shank foot -->
-    <joint name="RH_shank_fixed_RH_FOOT" type="fixed">
-        <parent link="RH_shank_fixed"/>
-        <child link="RH_FOOT"/>
-        <origin rpy="0 0 0" xyz="-0.08795 -0.01305 -0.33797"/>
+    <joint name="HR_shank_fixed_HR_FOOT" type="fixed">
+        <parent link="HR_shank_fixed"/>
+        <child link="HR_FOOT"/>
+        <origin rpy="0 0 0" xyz="-0.08795 -0.01305 -0.31547"/>
     </joint>
     <!-- Foot link -->
-    <link name="RH_FOOT">
+    <link name="HR_FOOT">
         <visual>
-            <origin rpy="0 0 -3.92699081699" xyz="0 0 0"/>
+            <origin rpy="0 0 -3.92699081699" xyz="0 0 -0.0225"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/foot.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/foot.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <!-- Adapter collision -->
         <collision>
-            <origin rpy="0 0 0" xyz="0 0 0.168985"/>
+            <origin rpy="0 0 0" xyz="0 0 0.146485"/>
             <geometry>
                 <cylinder length="0.282504" radius="0.0175"/>
             </geometry>
         </collision>
         <!-- Foot collision -->
         <collision>
-            <origin xyz="0 0 0.0225"/>
+            <origin xyz="0 0 0.0"/>
             <geometry>
                 <sphere radius="0.03"/>
             </geometry>
         </collision>
         <inertial>
-            <origin rpy="0 0 0" xyz="-0.00948 0.00948 0.1468"/>
+            <origin rpy="0 0 0" xyz="-0.00948 0.00948 0.1243"/>
             <mass value="0.25"/>
             <inertia ixx="0.00317174097" ixy="2.63048e-06" ixz="-6.815581e-05" iyy="0.00317174092" iyz="-6.815583e-05" izz="8.319196e-05"/>
         </inertial>
     </link>
     <!-- Fixed joint base hatch -->
     <joint name="base_hatch" type="fixed">
-        <parent link="base"/>
+        <parent link="base_link"/>
         <child link="hatch"/>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
     </joint>
@@ -1591,7 +1591,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0.116 0 0.073"/>
             <geometry>
-                <mesh filename="package://anymal_c_simple_description/meshes/hatch.dae" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://robot_properties_solo/resources/meshes/anymal/dae/hatch.dae" scale="1.0 1.0 1.0"/>
             </geometry>
         </visual>
         <inertial>

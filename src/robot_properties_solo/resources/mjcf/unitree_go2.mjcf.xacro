@@ -320,7 +320,7 @@
     <key name="home" qpos="0 0 0.27 1 0 0 0 0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8"
       ctrl="0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8" />
   </keyframe>
-    <equality>
+  <equality>
         <weld name="fixed" active="false" body1="base_link"/>
   </equality>
 </mujoco>
